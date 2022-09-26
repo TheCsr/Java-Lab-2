@@ -1,0 +1,13 @@
+keytool -genkeypair -alias SSLCertificate -keystore 
+
+keytool -export -alias sslcertificate -keystore SSLStore -rfc -file my_certificate.cer 
+
+java -Djavax.net.ssl.keyStore=SSLStore -Djavax.net.ssl.keyStorePassword=nadir11 -Djdk.tls.server.protocols=TLSv1.2 LoginServer.java
+
+java 13.49.76.150:7070 changeit -Djdk.tsl.client.protocols=TLSv1.2
+
+
+sudo scp -i KEY_D7001D_gr9.pem /home/nadir/NetProg/Lab2/part5/src/LoginServer.java ubuntu@13.48.70.157:~/lab2/
+
+
+13.48.70.157:7070
